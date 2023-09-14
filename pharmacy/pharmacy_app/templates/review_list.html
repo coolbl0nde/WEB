@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>Отзывы</h1>
+    <ul>
+        {% for review in reviews %}
+            <li>
+                <strong>{{ review.user.username }}</strong> - {{ review.rating }}/5<br>
+                {{ review.text }}<br>
+                Дата: {{ review.date_created|date:"F d, Y H:i" }}
+            </li>
+        {% endfor %}
+    </ul>
+
+    {% if user.is_authenticated %}
+        <form method="get" action="{% url 'pharmacy_app:add_review' %}">
+            <button type="submit">Добавить отзыв</button>
+        </form>
+    {% else %}
+        <form method="get" action="{% url 'pharmacy_app:register' %}">
+            <button type="submit">Добавить отзыв</button>
+        </form>
+    {% endif %}
+{% endblock %}

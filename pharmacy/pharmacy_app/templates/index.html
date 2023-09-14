@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+     <section class="latest-article">
+        <!-- Краткая информация о последней статье -->
+         <h1>Последняя новость</h1>
+         <h2>{{ latest_article.title }}</h2>
+         <p>{{ latest_article.short_description }}</p>
+         <a href="{% url 'pharmacy_app:article_detail' latest_article.id %}">Читать далее</a>
+    </section>
+
+    <hr>
+
+    <section class="advertisement">
+        <!-- Рекламный баннер -->
+        <img src="{% static 'images/banner.jpg' %}" alt="Реклама">
+    </section>
+
+    <hr>
+
+    <section class="partners" align="center">
+        <!-- Список компаний-партнеров -->
+        <h3>Наши партнеры</h3>
+        <a href="https://www.ru.abbott"><img src="{% static 'images/company1.jpg' %}" alt="Компания 1"
+                                          width="50" height="50"></a>
+        <a href="https://stada.by"><img src="{% static 'images/company2.jpg' %}" alt="Компания 2"
+                                          width="50" height="50"></a>
+        <a href="https://www.bayer.ru/ru/"><img src="{% static 'images/company3.jpg' %}" alt="Компания 3"
+                                          width="50" height="50"></a>
+            <!-- Добавьте больше компаний по мере необходимости -->
+
+    </section>
+{% endblock %}

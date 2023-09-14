@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+  <h1>Новости</h1>
+  <ul class="article-list">
+    {% for article in articles %}
+      <li class="article">
+        <h2>{{ article.title }}</h2>
+        <p>{{ article.short_description }}</p>
+        <img src="{{article.image.url}}" width="250" height="150">
+        <br>
+        <a href="{% url 'pharmacy_app:article_detail' article.id %}">Читать далее</a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

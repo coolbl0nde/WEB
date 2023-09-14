@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}
+
+<title>Medicines Page</title>
+
+{% endblock %}
+
+{% block content %}
+
+
+<ul> 
+
+<form action="{{ request.get_full_path }}" method="get">
+   <button type="submit" name="sort_price" value="ascending">Sort up by price</button>
+   <button type="submit" name="sort_price" value="descending">Sort down by price</button>
+</form>
+
+{% for medicine in medicines%}
+<li>    
+   <img src="{{medicine.photo.url}}" width="200" height="150">
+    <br>
+   <a href="{% url 'pharmacy_app:medicines_details' medicine.id %}">{{medicine.code}}, {{medicine.name}}</a>
+</li>
+
+{% endfor %}
+
+</ul>
+{% endblock %}

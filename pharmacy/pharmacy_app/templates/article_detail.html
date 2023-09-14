@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <article>
+    <h1>{{ article.title }}</h1>
+    <img src="{{ article.image.url }}" alt="{{ article.title }}" width="500" height="250">
+    <p>{{ article.content }}</p>
+
+  </article>
+{% endblock %}

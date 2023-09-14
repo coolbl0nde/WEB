@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Продажи</h1>
+  <ul class="sale-list">
+    {% for sale in sales %}
+      <li class="sale">
+        <h2>{{ sale.medicines }}</h2>
+        <p>Дата продажи: {{ sale.sale_date }}</p>
+        <p>Количество проданных единиц: {{ sale.quantity_sold }}</p>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}
