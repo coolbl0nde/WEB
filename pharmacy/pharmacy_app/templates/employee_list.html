@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+  <h1>Контакты</h1>
+  <ul class="employees-list">
+    {% for employee in employees %}
+      <li class="employee">
+        <h2>{{ employee.first_name }}</h2>
+        <p>{{ employee.description }}</p>
+        <p>{{ employee.phone_number }}</p>
+        <p>{{ employee.email }}</p>
+        <img src="{{employee.photo.url}}" width="250" height="150">
+        <br>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

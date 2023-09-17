@@ -1,13 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
   <h1>Словарь терминов и понятий</h1>
-  <ul class="faq-list">
     {% for faq in faqs %}
-      <li class="faq-item">
-        <h2>{{ faq.question }}</h2>
-        <p>{{ faq.answer }}</p>
-        <p class="date">{{ faq.date_added|date }}</p>
-      </li>
+        <details>
+          <summary><span style="font-size: 25px;"><b>{{ faq.question }}</b></span></summary>
+          <p>{{ faq.answer }}</p>
+          <p class="date">{{ faq.date_added|date }}</p>
+        </details>
     {% endfor %}
-  </ul>
 {% endblock %}

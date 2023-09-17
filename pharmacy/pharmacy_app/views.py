@@ -162,6 +162,10 @@ def privacy_policy(request):
     return render(request, 'privacy_policy.html')
 
 
+def about_company(request):
+    return render(request, 'about_company.html')
+
+
 def vacancy_list(request):
     vacancies = Vacancy.objects.all()
     return render(request, "vacancy_list.html", {'vacancies': vacancies})
@@ -188,3 +192,13 @@ def add_review(request):
     else:
         form = ReviewForm()
     return render(request, 'add_review.html', {'form': form})
+
+
+def employee_list(request):
+    employees = Employee.objects.all()
+    return render(request, 'employee_list.html', {'employees': employees})
+
+
+def coupon_list(request):
+    coupons = Coupon.objects.filter(archived=False)  # Получаем активные промокоды
+    return render(request, 'coupon_list.html', {'coupons': coupons})

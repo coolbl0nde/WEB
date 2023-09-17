@@ -5,7 +5,7 @@ from .models import *
 @admin.register(Medicines)
 class MedicinesAdmin(admin.ModelAdmin):
     list_display = ('code', 'name', 'price', 'category', 'supplier')
-    list_filter = ('category', 'supplier')
+    list_filter = ('category', 'supplier', 'pharmacy_department')
     search_fields = ('name', 'code')
 
 
@@ -59,3 +59,16 @@ class ReviewAdmin(admin.ModelAdmin):
     list_filter = ('date_created', 'rating')
     search_fields = ('user__username', 'text')
     date_hierarchy = 'date_created'
+
+
+@admin.register(PharmacyDepartment)
+class PharmacyDepartmentAdmin(admin.ModelAdmin):
+    list_display = ('name', )
+
+
+@admin.register(Coupon)
+class CouponAdmin(admin.ModelAdmin):
+    list_display = ['code', 'discount', 'valid_from', 'valid_to', 'archived']
+    list_filter = ['archived']
+    search_fields = ['code', 'description']
+    date_hierarchy = 'valid_from'

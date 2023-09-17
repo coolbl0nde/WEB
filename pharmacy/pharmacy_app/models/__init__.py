@@ -7,3 +7,5 @@ from .article import Article
 from .vacancy import Vacancy
 from .faq import FAQ
 from .review import Review
+from .pharmacy_department import PharmacyDepartment
+from .coupon import Coupon

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>Список промокодов и купонов</h1>
+  <ul>
+    {% for coupon in coupons %}
+      <li>
+        <strong>Код: {{ coupon.code }}</strong><br>
+        Описание: {{ coupon.description }}<br>
+        Скидка: {{ coupon.discount }}<br>
+        Действует с {{ coupon.valid_from|date:"d.m.Y" }} до {{ coupon.valid_to|date:"d.m.Y" }}
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

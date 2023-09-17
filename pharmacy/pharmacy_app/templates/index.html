@@ -7,7 +7,9 @@
          <h1>Последняя новость</h1>
          <h2>{{ latest_article.title }}</h2>
          <p>{{ latest_article.short_description }}</p>
-         <a href="{% url 'pharmacy_app:article_detail' latest_article.id %}">Читать далее</a>
+         <form method="get" action="{% url 'pharmacy_app:article_detail' latest_article.id %}">
+            <button type="submit">Читать далее</button>
+         </form>
     </section>
 
     <hr>
