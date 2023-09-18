@@ -8,12 +8,11 @@
 
 {% block content %}
 
-
 <ul> 
 
-<form action="{{ request.get_full_path }}" method="get">
-   <button type="submit" name="sort_price" value="ascending">Sort up by price</button>
-   <button type="submit" name="sort_price" value="descending">Sort down by price</button>
+<form action="" method="get">
+   <button type="submit" name="sort_price" value="ascending">Сортировать по возрастанию цены</button>
+   <button type="submit" name="sort_price" value="descending">Сортировать по убыванию цены</button>
 </form>
 
 {% for medicine in medicines%}

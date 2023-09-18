@@ -8,6 +8,9 @@
         Описание: {{ coupon.description }}<br>
         Скидка: {{ coupon.discount }}<br>
         Действует с {{ coupon.valid_from|date:"d.m.Y" }} до {{ coupon.valid_to|date:"d.m.Y" }}
+        {% if coupon.archived %}
+          (Архивный)
+        {% endif %}
       </li>
     {% endfor %}
   </ul>

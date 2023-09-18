@@ -9,6 +9,7 @@ urlpatterns = [
     path('articles/', views.article_list, name='article_list'),
     path('privacy-policy/', views.privacy_policy, name='privacy_policy'),
     path('about_company/', views.about_company, name='about_company'),
+    path('certificate/', views.certificate, name='certificate'),
     path('vacancies/', views.vacancy_list, name='vacancy_list'),
     path('coupons/', views.coupon_list, name='coupon_list'),
     path('faq/', views.faq_list, name='faq_list'),
@@ -23,7 +24,7 @@ urlpatterns = [
     path('logout/', views.logout_user, name = 'logout'),
     path('login/', views.LoginUser.as_view(), name = 'login'),
     # path("create/", views.medicines_create, name='create'),
-    # path("medicines/edit/<int:id>/", views.medicines_edit),
-    # path("medicines/delete/<int:id>/", views.medicines_delete),
+    path("medicines/edit/<int:id>/", views.medicines_edit),
+    path("medicines/delete/<int:id>/", views.medicines_delete),
 
 ]

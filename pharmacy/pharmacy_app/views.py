@@ -34,6 +34,12 @@ def medicinesList(request):
         if max_price is not None:
             medicines = medicines.filter(price__lte=max_price)
 
+    sort_price = request.GET.get('sort_price')
+    if sort_price == 'ascending':
+        medicines = medicines.order_by('price')
+    elif sort_price == 'descending':
+        medicines = medicines.order_by('-price')
+
     return render(request, 'medicines.html', {
         'medicines': medicines,
         'filter_form': filter_form,
@@ -111,7 +117,8 @@ def medicines_edit(request, id):
 
         form = MedicinesForm(initial={'code': medicines.code, 'name': medicines.name,
                                 'description': medicines.description, 'price': medicines.price,
-                                'instruction': medicines.instruction, 'medicines_type': medicines.medicines_type,
+                                'instruction': medicines.instruction, 'category': medicines.category,
+                                'pharmacy_department': medicines.pharmacy_department,
                                 'supplier': medicines.supplier,'photo': medicines.photo})
 
         if request.method == "POST":
@@ -120,7 +127,8 @@ def medicines_edit(request, id):
             medicines.description = request.POST.get('description')
             medicines.price = request.POST.get('price')
             medicines.instruction = request.POST.get('instruction')
-            medicines.medicines_type = Medicines.objects.get(id=request.POST.get('medicines_type'))
+            medicines.category = Medicines.objects.get(id=request.POST.get('category'))
+            medicines.pharmacy_department = Medicines.objects.get(id=request.POST.get('pharmacy_department'))
             medicines.supplier = Supplier.objects.get(id=request.POST.get('supplier'))
             medicines.photo = request.FILES.get('photo')
             medicines.save()
@@ -166,6 +174,10 @@ def about_company(request):
     return render(request, 'about_company.html')
 
 
+def certificate(request):
+    return render(request, 'certificate.html')
+
+
 def vacancy_list(request):
     vacancies = Vacancy.objects.all()
     return render(request, "vacancy_list.html", {'vacancies': vacancies})
@@ -200,5 +212,5 @@ def employee_list(request):
 
 
 def coupon_list(request):
-    coupons = Coupon.objects.filter(archived=False)  # Получаем активные промокоды
+    coupons = Coupon.objects.filter()  # Получаем активные промокоды archived=False
     return render(request, 'coupon_list.html', {'coupons': coupons})

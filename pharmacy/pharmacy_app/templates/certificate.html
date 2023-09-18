@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+    <center>
+        <h3>Сертификат от Министерства Здравоохранения</h3>
+        <h1>Свидетельство</h1>
+        <h3>о внесении сведений</h3>
+        <p style="text-align: left;">Минск <span style="float: right;">22.02.2023</span></p>
+        <h3>Общество с ограниченной ответственностью “Pharmacy”</h3>
+        <h3>(ИНН 7731340252)</h3>
+        <h3>Реестровый номер: 8241</h3>
+
+        <a href="{% static 'certificate.pdf' %}" download>Скачать сертификат</a>
+    </center>
+
+{% endblock %}

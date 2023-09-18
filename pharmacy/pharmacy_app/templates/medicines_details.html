@@ -7,27 +7,23 @@
 {% endblock %}
 
 {% block content %}
-{%if request.user.is_staff%}
 
+{% if user.is_superuser %}
 <div>
     <a href="edit/{{medicines.id}}/">Edit medicine</a>
     <a href="delete/{{medicines.id}}">Delete medicine</a>
-
 </div>
-{%endif%}
+{% endif %}
+
 <img src="{{medicines.photo.url}}" width="200" height="150">
 <ul>
-<li>{{medicines.code}}</li>
-<li>{{medicines.name}}</li>
-<li>{{medicines.price}}</li>
-<li>{{medicines.description}}</li>
-<li>{{medicines.instruction}}</li>
-<li>{{medicines.category}}</li>
-<li>{{medicines.supplier}}</li>
-
-{%if user.is_authenticated%}
-
-{%endif%}
-
+    <li>{{medicines.code}}</li>
+    <li>{{medicines.name}}</li>
+    <li>{{medicines.price}}</li>
+    <li>{{medicines.description}}</li>
+    <li>{{medicines.instruction}}</li>
+    <li>{{medicines.category}}</li>
+    <li>{{medicines.pharmacy_department}}</li>
+    <li>{{medicines.supplier}}</li>
 </ul>
 {% endblock %}

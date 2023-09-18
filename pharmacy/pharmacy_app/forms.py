@@ -50,7 +50,7 @@ class MedicinesForm(forms.ModelForm):
     class Meta:
         model = Medicines
         fields = ['code', 'name', 'instruction', 'description', 'price', 'category', 'supplier',
-                  'photo']
+                  'pharmacy_department', 'photo']
 
 
 class SaleInfoForm(forms.Form):
